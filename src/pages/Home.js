@@ -7,10 +7,9 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState(null);
     useEffect(() => {
         apiGet(`/popular?page=1`)
-          .then(response => {setPopular(response.data.results); console.log(response.data.results)})
+          .then(response => {setPopular(response.data.results);})
           .catch(err => {console.log(err)});
         return () => {
-          
         };
       }, []);
       const renderResults = () => {
@@ -23,11 +22,11 @@ const Home = () => {
         return null;
       };
       if (popular !== null) {
-        return <MovieGrid data={popular}/>
+        return (<div>
+                  <MovieGrid data={popular}/>
+                </div>);
       }
       return <div>Loading Data ...</div>
-      
-    
   };
 
 export default Home;

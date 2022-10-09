@@ -16,7 +16,7 @@ const Movie = () => {
         return () => {
           
         };
-      }, []);
+      }, [Id]);
       if(!isLoading && !Movie && error){
         return <div>Unable to Get Movie, ID{Id} may be incorrect </div>
       }
@@ -26,6 +26,7 @@ const Movie = () => {
           <div className='main'>
             <div className='title'>
               <h1>{Movie.title}</h1>
+              
             </div>
           </div>
         </MoviePageStyled>)
