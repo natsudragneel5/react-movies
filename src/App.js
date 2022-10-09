@@ -5,6 +5,7 @@ import { Routes, Route, Link, BrowserRouter} from 'react-router-dom';
 import Home from './pages/Home';
 import Movie from './pages/Movie';
 import Navs from './components/nav/Navs';
+import Search from './pages/Search';
 
 const theme = {
   mainColors: {
@@ -26,6 +27,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie:Id" element={<Movie/>}/>
+        <Route path="/search:Query" element={<Search/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

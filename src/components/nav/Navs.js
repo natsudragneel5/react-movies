@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavList, LinkStyled } from './Navs.styled';
+import SearchBar from './SearchBar';
 
 const LINKS = [
   { to: '/', text: 'Home' },
@@ -22,6 +23,7 @@ const Navs = () => {
             </LinkStyled>
           </li>
         ))}
+        <SearchBar />
       </NavList>
     </>
   );

@@ -11,18 +11,21 @@ const MovieGrid = ({data})=>{
     setLoading(true);
     const values= Array.from(new Set (data.map(e => {return String(e.release_date).substring(0,4)}))).sort().reverse();
     setYears(values);
-    setCurrYear(values[0]);
+    setCurrYear('all');
     setLoading(false);
     return () => {
     };
   }, [data]);
   useEffect(() => {
     setLoading(true);
-    
+
     if(currYear !== null){
     setDiplay(data.filter(e=>{return String(e.release_date).substring(0,4)===currYear}));
   }
   else{
+    setDiplay(data);
+  }
+  if(currYear === 'all'){
     setDiplay(data);
   }
   setLoading(false);
@@ -37,7 +40,7 @@ const MovieGrid = ({data})=>{
   }
   if(!isLoading){
     return (
-    <><FilterList>Filter By Year: <select value={currYear} onInput={updateCurrYear}>{years.map((year)=>{return <option key={year} value={year}>{year}</option>})}</select></FilterList>
+    <><FilterList>Year :&nbsp;&nbsp;<select value={currYear} onInput={updateCurrYear}><option key="all" value="all">all</option>{years.map((year)=>{return <option key={year} value={year}>{year}</option>})}</select></FilterList>
       <FlexGrid >{display.map(( mov ) => {
         return (<MovieCard
             key={mov.id}
